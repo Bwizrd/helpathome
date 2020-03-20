@@ -1,0 +1,50 @@
+<div class="pageOuter">
+  <div class="backDiv" [routerLink]="['/dashboard']">
+    <i class="material-icons-outlined">arrow_back</i>
+    <h4>Back</h4>
+  </div>
+  <input type="text" class="form-control" placeholder="Search Post Code" [(ngModel)]="searchTerm" />
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <table class="table table-hover" matSort (matSortChange)="sortData($event)">
+      <tr>
+        <th mat-sort-header="firstName">First Name</th>
+        <th mat-sort-header="secondName">Last Name</th>
+        <th mat-sort-header="address">Address</th>
+        <th mat-sort-header="postCode">Post Code</th>
+        <th class="noSmallScreen" mat-sort-header="gender">Gender</th>
+        <th mat-sort-header="age">Age</th>
+        <th>Phone Number</th>
+        <th class="noSmallScreen">Completed</th>
+      </tr>
+
+      <tr *ngFor="let request of sortedData | filterItems:searchTerm">
+        <td [ngClass]="{textStrikeThrough: request.completed}">{{request.firstName}}</td>
+        <td [ngClass]="{textStrikeThrough: request.completed}">{{request.secondName}}</td>
+        <td [ngClass]="{textStrikeThrough: request.completed}">{{request.address}}</td>
+        <td [ngClass]="{textStrikeThrough: request.completed}">{{request.postCode}}</td>
+        <td class="noSmallScreen" [ngClass]="{textStrikeThrough: request.completed}">{{request.gender}}</td>
+        <td [ngClass]="{textStrikeThrough: request.completed}">{{request.age}}</td>
+        <td [ngClass]="{textStrikeThrough: request.completed}">{{request.phoneNumber}}</td>
+        <td class="noSmallScreen" *ngIf="request.completed">
+          <mat-icon>check</mat-icon>
+        </td>
+        <td class="noSmallScreen" *ngIf="!request.completed">
+          <mat-icon>error_outline</mat-icon>
+        </td>
+        <!-- <td><a class="btn btn-danger" (click)="onDelete(request.id)"><i class="material-icons-outlined">delete_sweep</i></a></td> -->
+        <td><a routerLink="{{ request.id }}"><i class="material-icons-outlined">remove_red_eye</i></a></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<!-- id: string;
+  firstName: string;
+  secondName: string;
+  address: string;
+  postCode: string;
+  gender: string;
+  age: number;
+  // urgencyLevel: number;
+  phoneNumber: string;
+  needs: string;
+  completed: boolean; -->

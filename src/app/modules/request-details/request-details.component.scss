@@ -1,0 +1,85 @@
+.assistDetailsTile1 {
+  border-top: 1px solid lightgray;
+  border-left: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+.assistDetailsTile2 {
+  border-top: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  .mat-figure {
+    justify-content: start !important;
+  }
+}
+
+::ng-deep #assistDetailsTile2 .mat-grid-tile .mat-figure {
+  justify-content: start !important;
+}
+
+.needsBox {
+  border: 1px solid lightgray;
+  font-size: 2em;
+  padding: 1em;
+  min-height: 8em;
+  margin-bottom: 1em;
+}
+
+textarea {
+  font-size: 1.5em;
+  width: 100%;
+}
+select::-ms-expand {
+  display: none;
+}
+
+.completedselectdiv {
+  label {
+    margin-top: 1em;
+    font-size: 1.5em;
+  }
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* Add some styling */
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: 50px;
+    margin: 5px 0px;
+    padding: 0px 24px;
+    font-size: 16px;
+    line-height: 1.75;
+    color: #333;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #cccccc;
+    -ms-word-break: normal;
+    word-break: normal;
+  }
+  margin-bottom: 2em;
+}
+
+.success-icon {
+  position: relative;
+  top: 54px;
+  left: 20px;
+  font-size: 60px;
+  color: green;
+}
+
+@media screen and (max-width: 960px) {
+  .assistDetailsTile1 {
+    border-right: 1px solid lightgray;
+  }
+
+  .assistDetailsTile2 {
+    font-size: 14px;
+    border-left: 1px solid lightgray;
+  }
+  .needsBox {
+    font-size: 18px;
+  }
+}

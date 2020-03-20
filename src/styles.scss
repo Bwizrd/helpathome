@@ -1,1 +1,85 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+mat-toolbar{
+  background-color: #02bcdd !important;
+  span:nth-child(1){
+    color: darkslateblue;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  span:nth-child(1):active {
+    outline: none;
+  }
+  span:nth-child(1):focus {
+    outline: none;
+  }
+}
+
+.backDiv:active {
+  outline: none;
+}
+.backDiv:focus {
+  outline: none;
+}
+
+.backDiv{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  i {
+    font-size: 1.75em;
+  }
+  h4 {
+    font-size: 1.25em;
+  }
+}
+
+.pageOuter {
+  padding: 4em;
+}
+
+.mat-snack-bar-container.success-snackBar {
+  background: #4BB543;
+  color: white;
+}
+
+.mat-snack-bar-container .flex {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+button {
+  background-color: #02BDDD;
+  color: #fff;
+  padding: 0.3em 1.8em;
+  font-size: 1.8em;
+  border-radius: 25px;
+}
+
+.assistDetailsTile2 .mat-grid-tile:nth-child(1) {
+  justify-content: start !important;
+}
+
+#assistDetails2 {
+  figure{
+    justify-content: start !important;
+
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .pageOuter {
+    padding: 1em;
+}
+.subHeading {
+  display: none;
+}
+.dashbaordButtonTitle{
+  margin-top: 2px;;
+}
+}
+

@@ -1,0 +1,30 @@
+
+
+.dashboardList {
+  width: 100%;
+}
+
+
+.dashboard-grid-tile {
+  background: #fff;
+  border: 1px gray solid;
+  border-radius: 5px;
+  cursor: pointer;
+  div {
+    margin-top: 3em;
+    font-size: 2em;
+  }
+  i {
+    font-size: 4.7em;
+    color: #02bcdd;
+  }
+  h4 {
+    font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 460px) {
+.dashboard-grid-tile i {
+  font-size: 2.7em;
+}
+}

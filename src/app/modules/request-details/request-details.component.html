@@ -1,0 +1,99 @@
+<div class="pageOuter">
+  <div class="backDiv" [routerLink]="['/assist']">
+    <i class="material-icons-outlined">arrow_back</i>
+    <h4>Back</h4>
+  </div>
+  <!-- <pre>{{ request | json }}</pre> -->
+  <mat-grid-list fxHide fxShow.gt-sm cols="2" rowHeight="20vh" gutterSize="0px">
+    <mat-grid-tile  [colspan]="1" [rowspan]="3" class="assistDetailsTile1">
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <img *ngIf="request.gender == 'male'" src="assets/maleDummyImage.png" alt="" width="300">
+        <img *ngIf="request.gender == 'female'" src="assets/femaleDummyImage.jpg" alt="" width="500">
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="3" id="assistDetails2" class="assistDetailsTile2">
+      <div fxLayout="column" fxLayoutAlign="center start">
+        <h1>{{request.firstName}} {{ request.secondName}}</h1>
+
+          <h4><strong>Age: &nbsp;</strong>{{ request.age }}</h4>
+          <h4><strong>Gender: &nbsp;</strong>{{ request.gender }}</h4>
+
+        <div fxLayout="row" fxLayoutAlign="center space-between">
+          <h4><strong>Address: &nbsp;</strong></h4>
+          <h4>{{ request.address }}</h4>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center space-between">
+          <h4><strong>Post Code: &nbsp;</strong></h4>
+          <h4>{{ request.postCode }}</h4>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center space-between">
+          <h4><strong>Contact Number: &nbsp;</strong></h4>
+          <h4>{{ request.phoneNumber }}</h4>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list fxHide fxShow.lt-md cols="1" rowHeight="20vh" gutterSize="0px">
+    <mat-grid-tile  [colspan]="1" [rowspan]="3" class="assistDetailsTile1">
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <img *ngIf="request.gender == 'male'" src="assets/maleDummyImage.png" alt="" width="300">
+        <img *ngIf="request.gender == 'female'" src="assets/femaleDummyImage.jpg" alt="" width="500">
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="3" id="assistDetails2" class="assistDetailsTile2">
+      <div fxLayout="column" fxLayoutAlign="center start">
+        <h1>{{request.firstName}} {{ request.secondName}}</h1>
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <h4><strong>Age: &nbsp;</strong>{{ request.age }}</h4>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center space-between">
+          <h4><strong>Gender: &nbsp;</strong></h4>
+          <h4>{{ request.gender }}</h4>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center space-between">
+          <h4><strong>Address: &nbsp;</strong></h4>
+          <h4>{{ request.address }}</h4>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center space-between">
+          <h4><strong>Post Code: &nbsp;</strong></h4>
+          <h4>{{ request.postCode }}</h4>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center space-between">
+          <h4><strong>Contact Number: &nbsp;</strong></h4>
+          <h4>{{ request.phoneNumber }}</h4>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <h2>List of Needs / Nature of Request</h2>
+  <div class="needsBox">
+    {{ request.needs }}
+  </div>
+  <h2>Notes made by person assisting</h2>
+  <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <div>
+      <div class="descriptionBlock">
+        <label for="w3mission"></label>
+        <textarea rows="10" cols="50" name="notes" #needs="ngModel" [(ngModel)]="request.notes"
+          placeholder="please make any notes about your assistance here (include the date)">
+      </textarea>
+
+        <div class="completedselectdiv" fxLayout="row">
+          <label for="completed">Is this request completed?
+            <!-- <input type="checkbox"> -->
+            <select id="completed" name="completed" #completed="ngModel" [(ngModel)]="request.completed">
+              <option [ngValue]="false">No</option>
+              <option [ngValue]="true">Yes</option>
+            </select>
+          </label>
+          <mat-icon class="success-icon"*ngIf="request.completed == 'true'">check</mat-icon>
+        </div>
+      </div>
+      {{ request.completed }}
+      <div>
+        <button type="submit" [disabled]="form.invalid">SUBMIT</button>
+      </div>
+    </div>
+  </form>
+</div>

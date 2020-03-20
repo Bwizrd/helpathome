@@ -1,0 +1,70 @@
+<div class="pageOuter">
+  <div class="backDiv" [routerLink]="['/dashboard']">
+    <i class="material-icons-outlined">arrow_back</i>
+    <h4>Back</h4>
+  </div>
+  <div>
+    <h3>Please fill out as much information as possible to help people to help you</h3>
+  </div>
+  <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <div>
+      <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.formData.id">
+      <div>
+        <input name="firstName" #firstName="ngModel" [(ngModel)]="service.formData.firstName" class="form-control"
+          placeholder="First Name" required>
+        <div *ngIf="firstName.invalid && firstName.touched" class="validation-error">This field is required.</div>
+      </div>
+      <div>
+        <input name="secondName" #secondName="ngModel" [(ngModel)]="service.formData.secondName" class="form-control"
+          placeholder="Second Name">
+      </div>
+      <div>
+        <input name="address" #address="ngModel" [(ngModel)]="service.formData.address" class="form-control"
+          placeholder="Address" required>
+        <div *ngIf="address.invalid && address.touched" class="validation-error">This field is required.</div>
+      </div>
+      <div>
+        <input name="postCode" #postCode="ngModel" [(ngModel)]="service.formData.postCode" class="form-control"
+          placeholder="Post Code">
+      </div>
+      <div>
+        <input name="age" #age="ngModel" [(ngModel)]="service.formData.age" placeholder="Age" class="form-control">
+      </div>
+      <div>
+        <input name="phoneNumber" #phoneNumber="ngModel" [(ngModel)]="service.formData.phoneNumber"
+          placeholder="Phone Number" class="form-control">
+      </div>
+      <div>
+        <input type="hidden" name="completed" #completed="ngModel" [(ngModel)]="service.formData.completed"
+          value="false">
+      </div>
+
+      <div>
+        <div>
+          <label>
+            <input type="radio" value="male" name="gender" [(ngModel)]="service.formData.gender">
+            Male
+          </label>
+          <label>
+            <input type="radio" value="female" name="gender" [(ngModel)]="service.formData.gender">
+            Female
+          </label>
+        </div>
+      </div>
+      <div class="descriptionBlock">
+        <label for="w3mission"></label>
+
+        <textarea rows="10" cols="50" name="needs" #needs="ngModel" [(ngModel)]="service.formData.needs"
+          placeholder="Description of what you need">
+      </textarea>
+      </div>
+      <div>
+        <input type="hidden" name="notes" #notes="ngModel" [(ngModel)]="service.formData.notes"
+          value="">
+      </div>
+      <div>
+        <button type="submit" [disabled]="form.invalid">SUBMIT</button>
+      </div>
+    </div>
+  </form>
+</div>

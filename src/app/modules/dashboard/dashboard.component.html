@@ -1,0 +1,33 @@
+
+<div class="pageOuter">
+  <div class="dashboardList">
+    <mat-grid-list fxHide fxShow.lt-md #grid cols="1" rowHeight="15vh" gutterSize="15px">
+      <mat-grid-tile [routerLink]="['/requestHelp']" [colspan]="1" [rowspan]="2" class="dashboard-grid-tile">
+        <div fxLayout="column" fxLayoutAlign="center center">
+          <i class="material-icons-outlined">emoji_people</i>
+          <h5 class="dashbaordButtonTitle">Request Help</h5>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile [routerLink]="['/assist']" [colspan]="1" [rowspan]="2" class="dashboard-grid-tile">
+        <div fxLayout="column" fxLayoutAlign="center center">
+          <i class="material-icons-outlined">transfer_within_a_station</i>
+          <h5 class="dashbaordButtonTitle">Assist</h5>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list fxHide fxShow.gt-sm #grid cols="2" rowHeight="20vh" gutterSize="20px">
+      <mat-grid-tile [routerLink]="['/requestHelp']" [colspan]="1" [rowspan]="2" class="dashboard-grid-tile">
+        <div fxLayout="column" fxLayoutAlign="center center">
+          <i class="material-icons-outlined">emoji_people</i>
+          <h5>Request Help</h5>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile [routerLink]="['/assist']" [colspan]="1" [rowspan]="2" class="dashboard-grid-tile">
+        <div fxLayout="column" fxLayoutAlign="center center">
+          <i class="material-icons-outlined">transfer_within_a_station</i>
+          <h5>Assist</h5>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>
