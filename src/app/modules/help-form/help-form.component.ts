@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./help-form.component.scss']
 })
 export class HelpFormComponent implements OnInit {
-  message = 'Submitted Succesfully 👍';
+  message = 'Due to Legal Concerns. This App is not functional!';
   constructor(public service: HelpRequestService,
               private firestore: AngularFirestore,
               // private toastr: ToastrService,
@@ -45,11 +45,11 @@ export class HelpFormComponent implements OnInit {
   onSubmit(form: NgForm) {
     const data = Object.assign({}, form.value);
     delete data.id;
-    if (form.value.id == null) {
-      this.firestore.collection('helpRequests').add(data);
-    } else {
-    this.firestore.doc('helpRequests/' + form.value.id).update(data);
-    }
+    // if (form.value.id == null) {
+    //   this.firestore.collection('helpRequests').add(data);
+    // } else {
+    // this.firestore.doc('helpRequests/' + form.value.id).update(data);
+    // }
     this.resetForm(form);
     // this.toastr.success('Submitted Succesfully', 'Thanks');
     this.openSnackBar(this.message, 'success-snackBar');
